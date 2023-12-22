@@ -1,0 +1,293 @@
+Q1. How do you load a CSV file into a Pandas DataFrame?
+
+answer: 
+df = pd.read_csv("file path")
+
+Q2. How do you check the data type of a column in a Pandas DataFrame?
+
+answer:  
+df = pd.dataframe("the data ")
+print(df.dtypes)
+
+Q3. How do you select rows from a Pandas DataFrame based on a condition?
+
+answer:
+import pandas as pd
+
+d = {
+     'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),
+     'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+    }
+
+df = pd.DataFrame(d)
+print(df['one'])
+
+
+Q4. How do you rename columns in a Pandas DataFrame?
+
+answer:
+df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+df.rename(columns={"A": "a", "B": "c"})
+
+Q5. How do you drop columns in a Pandas DataFrame?
+
+answer:
+df.drop('column name')
+
+
+Q6. How do you find the unique values in a column of a Pandas DataFrame?
+
+answer:
+import pandas as pd
+df = {
+  "Array_1": [30, 70, 100,100,30],
+  "Array_2": [65.1, 49.50, 30.7,55.33,49.50]
+}
+cc = pd.DataFrame(df)
+result = cc.Array_1.unique()
+print(result)
+
+Q7. How do you find the number of missing values in each column of a Pandas DataFrame?
+
+
+answer:
+df = pd.DataFrame(
+    np.random.randn(5, 3),
+    index=["a", "c", "e", "f", "h"],
+    columns=["one", "two", "three"],
+)
+df["four"] = "bar"
+df["five"] = df["one"] > 0
+df2 = df.reindex(["a", "b", "c", "d", "e", "f", "g", "h"])
+pd.isna(df2['one']).sum()
+
+
+Q8. How do you fill missing values in a Pandas DataFrame with a specific value?
+
+answer:
+df = pd.DataFrame(
+     np.random.randn(5, 3),
+     index=["a", "c", "e", "f", "h"],
+     columns=["one", "two", "three"],
+)
+df["four"] = "bar"
+df["five"] = df["one"] > 0
+df2 = df.reindex(["a", "b", "c", "d", "e", "f", "g", "h"])
+df2.fillna(20)
+
+Q9. How do you concatenate two Pandas DataFrames?
+
+answer:
+frames = [df, df1] 
+res1 = pd.concat(frames)
+res1
+
+Q10. How do you merge two Pandas DataFrames on a specific column?
+
+answer
+data1 = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+        'Age':[27, 24, 22, 32], 
+        'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+        'Qualification':['Msc', 'MA', 'MCA', 'Phd']} 
+   
+    
+data2 = {'Name':['Abhi', 'Ayushi', 'Dhiraj', 'Hitesh'], 
+        'Age':[17, 14, 12, 52], 
+        'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+        'Qualification':['Btech', 'B.A', 'Bcom', 'B.hons']} 
+ 
+result = pd.merge(daat1,data2,on ="Age")
+
+
+Q11. How do you group data in a Pandas DataFrame by a specific column and apply an aggregation function?
+
+
+answer:
+df2 = pd.DataFrame({"X": ["B", "B", "A", "A"], "Y": [1, 2, 3, 4]})
+
+df2.groupby(["X"]).sum()
+
+
+
+Q12. How do you pivot a Pandas DataFrame?
+
+answer:
+data = {
+   "value": range(12),
+   "variable": ["A"] * 3 + ["B"] * 3 + ["C"] * 3 + ["D"] * 3,
+   "date": pd.to_datetime(["2020-01-03", "2020-01-04", "2020-01-05"] * 4)
+}
+
+df.pivot(index = "date" , columns = "variable", values = "value")
+
+
+Q13. How do you change the data type of a column in a Pandas DataFrame?
+
+
+answer:
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Score': [85.5, 90.2, 78.9]}
+
+df = pd.DataFrame(data)
+df.dtypes
+df.age  = df["age"].astype(float)
+df.dtypes
+
+
+Q14. How do you sort a Pandas DataFrame by a specific column?
+
+answer:
+import numpy as np
+df = pd.DataFrame(
+    {
+        "one": pd.Series(np.random.randn(3), index=["a", "b", "c"]),
+        "two": pd.Series(np.random.randn(4), index=["a", "b", "c", "d"]),
+        "three": pd.Series(np.random.randn(3), index=["b", "c", "d"]),
+    }
+)
+
+df
+df.sort_values(by = "one")
+    
+
+Q15. How do you create a copy of a Pandas DataFrame?
+
+answer:
+
+import numpy as np
+df = pd.DataFrame(
+    {
+        "one": pd.Series(np.random.randn(3), index=["a", "b", "c"]),
+        "two": pd.Series(np.random.randn(4), index=["a", "b", "c", "d"]),
+        "three": pd.Series(np.random.randn(3), index=["b", "c", "d"]),
+    }
+)
+
+df
+df2 = df.copy()
+
+
+Q16. How do you filter rows of a Pandas DataFrame by multiple conditions?
+
+answer:
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 40],
+        'Salary': [50000, 60000, 70000, 80000]}
+
+df = pd.DataFrame(data)
+filtered_df = df[(df['Age'] > 30) & (df['Salary'] < 75000)]
+print(filtered_df)
+
+Q17. How do you calculate the mean of a column in a Pandas DataFrame?
+
+answer:
+    
+import pandas as pd 
+df = pd.DataFrame({"A":[12, 4, 5, None, 1], 
+                "B":[7, 2, 54, 3, None], 
+                "C":[20, 16, 11, 3, 8],
+                "D":[14, 3, None, 2, 6]}) 
+  
+df.mean(axis = 0, skipna = True) 
+
+
+Q18. How do you calculate the standard deviation of a column in a Pandas DataFrame?
+
+answer:
+we can use the function std() for standard deviation
+df['column_name'].std() 
+
+Q19. How do you calculate the correlation between two columns in a Pandas DataFrame?
+
+answer:
+    
+import pandas as pd
+ 
+df = {
+  "1": [30, 70, 100],
+  "2": [65.1, 49.50, 30.7]
+}
+ 
+data = pd.DataFrame(df)
+ 
+print(data.corr())
+
+Q20. How do you select specific columns in a DataFrame using their labels?
+
+
+answer:
+df1 = pd.DataFrame(np.random.randn(6, 4),
+                   index=list('abcdef'),
+                   columns=list('ABCD'))
+
+df1
+df1.loc[['a', 'b', 'd'], :]
+
+
+Q21. How do you select specific rows in a DataFrame using their indexes?
+
+
+answer:
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 40],
+        'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago']}
+
+df = pd.DataFrame(data, index=['a', 'b', 'c', 'd'])
+
+selected_rows_loc = df.loc[['a', 'c']]
+print("Using .loc[]:")
+print(selected_rows_loc)
+
+selected_rows_iloc = df.iloc[[0, 2]]
+print("\nUsing .iloc[]:")
+print(selected_rows_iloc)
+
+
+Q22. How do you sort a DataFrame by a specific column?
+
+answer:
+import pandas as pd
+import numpy as np
+unsorted_df = pd.DataFrame(np.random.randn(10,3),index=[1,4,6,2,3,5,9,8,0,7],columns = ['col2','col1','col3'])
+unsorted_df
+sorted_df= unsorted_df.sort_values('col2')
+sorted_df
+
+
+Q23. How do you create a new column in a DataFrame based on the values of another column?
+
+answer:
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 40],
+        'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago']}
+
+df = pd.DataFrame(data)
+df['age_double'] = df['Age']*2
+df
+
+
+Q24. How do you remove duplicates from a DataFrame?
+
+answer:
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'Alice', 'David', 'Bob'],
+        'Age': [25, 30, 35, 25, 40, 30],
+        'City': ['New York', 'San Francisco', 'Los Angeles', 'New York', 'Chicago', 'San Francisco']}
+
+df = pd.DataFrame(data)
+
+df_no_duplicates = df.drop_duplicates()
+print(df_no_duplicates)
+
+
+Q25. What is the difference between .loc and .iloc in Pandas?
+
+answer:
+
+1. Use .loc for label-based indexing (using names of rows and columns).
+2. Use .iloc for integer-location based indexing (using integer indices of rows and columns).
+
+
+
